@@ -1,0 +1,347 @@
+<!-- Bloco <head> + shell compartilhado dos mockups do SACC.
+     Copiar este bloco em cada mockup para garantir consistência.
+     CDN usado APENAS para visualização dos mockups; o produto real usa build normal. -->
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="sacc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACC — Templates de E-mail (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "sacc"; default: true; color-scheme: light;
+  --color-primary: #155E75;   --color-primary-content: #FFFFFF;
+  --color-secondary: #475569; --color-secondary-content: #FFFFFF;
+  --color-accent: #0D9488;    --color-accent-content: #FFFFFF;
+  --color-neutral: #1E293B;   --color-neutral-content: #F1F5F9;
+  --color-base-100: #FFFFFF;  --color-base-200: #F1F5F9;
+  --color-base-300: #E2E8F0;  --color-base-content: #0F172A;
+  --color-info: #0369A1;      --color-info-content: #FFFFFF;
+  --color-success: #15803D;   --color-success-content: #FFFFFF;
+  --color-warning: #B45309;   --color-warning-content: #FFFFFF;
+  --color-error: #B91C1C;     --color-error-content: #FFFFFF;
+}
+@plugin "daisyui/theme" {
+  name: "saccdark"; color-scheme: dark;
+  --color-primary: #38BDF8;   --color-primary-content: #082F49;
+  --color-secondary: #94A3B8; --color-secondary-content: #0F172A;
+  --color-accent: #2DD4BF;    --color-accent-content: #042F2E;
+  --color-neutral: #334155;   --color-neutral-content: #E2E8F0;
+  --color-base-100: #0F172A;  --color-base-200: #1E293B;
+  --color-base-300: #334155;  --color-base-content: #CBD5E1;
+  --color-info: #38BDF8;      --color-info-content: #082F49;
+  --color-success: #4ADE80;   --color-success-content: #052E16;
+  --color-warning: #FBBF24;   --color-warning-content: #451A03;
+  --color-error: #F87171;     --color-error-content: #450A0A;
+}
+body { font-family: 'Inter', system-ui, sans-serif; }
+.tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="bg-base-200 min-h-screen">
+<!-- App shell: sidebar dark (data-theme="saccdark") + topbar. Ver design-system.md. -->
+<div class="flex min-h-screen">
+  <aside data-theme="saccdark" class="w-64 shrink-0 bg-base-100 text-base-content flex flex-col">
+    <div class="h-16 flex items-center gap-2 px-4 border-b border-base-300">
+      <span class="font-bold text-lg text-primary">SACC</span>
+      <span class="text-xs opacity-60">Alertas Contábeis</span>
+    </div>
+    <nav class="flex-1 p-2">
+      <ul class="menu gap-1">
+        <li><a>Dashboard</a></li>
+        <li><a>Execuções</a></li>
+        <li><a>Plano de Contas</a></li>
+        <li><a>Destinatários</a></li>
+        <li><a class="active">Templates de E-mail</a></li>
+        <li class="menu-title mt-2">Administração</li>
+        <li><a>Usuários</a></li>
+        <li><a>Auditoria</a></li>
+        <li><a>Configurações</a></li>
+      </ul>
+    </nav>
+    <div class="p-4 border-t border-base-300 text-xs opacity-60">Cast Informática</div>
+  </aside>
+  <div class="flex-1 flex flex-col">
+    <header class="h-16 bg-base-100 border-b border-base-300 flex items-center justify-between px-6">
+      <span class="text-sm text-base-content/60">Ambiente interno</span>
+      <div class="flex items-center gap-3">
+        <span class="text-sm">Maria Silva</span>
+        <div class="avatar placeholder"><div class="bg-neutral text-neutral-content w-8 rounded-full"><span class="text-xs">MS</span></div></div>
+      </div>
+    </header>
+    <main class="flex-1 p-6">
+      <div class="max-w-screen-xl mx-auto space-y-6">
+
+        <!-- Cabeçalho da página (comum a todos os estados) -->
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-semibold">Templates de E-mail</h1>
+          <button class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            Novo template
+          </button>
+        </div>
+
+        <!-- ESTADO: SUCESSO -->
+        <section data-estado="sucesso" class="space-y-6">
+
+          <!-- Banner da regra do template em uso -->
+          <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span>O alerta usa o template ativo atualizado mais recentemente.</span>
+          </div>
+
+          <!-- Biblioteca -->
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body p-0">
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <thead class="text-xs uppercase text-base-content/60">
+                    <tr><th>Nome</th><th>Assunto</th><th>Situação</th><th>Versão</th><th>Atualizado em</th><th class="text-right">Ações</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="hover:bg-base-200">
+                      <td>
+                        <span class="inline-flex items-center gap-2">
+                          Alerta padrão de viradas
+                          <span class="badge badge-primary badge-sm">Em uso</span>
+                        </span>
+                      </td>
+                      <td><span class="tooltip" data-tip="[SACC] Alerta de contas viradas — {{data_execucao}}"><span class="block max-w-56 truncate">[SACC] Alerta de contas viradas — {{data_execucao}}</span></span></td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" checked aria-label="Ativo"></td>
+                      <td class="tnum">7</td>
+                      <td>02/07/2026 09:12</td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200">
+                      <td>Alerta resumido (diretoria)</td>
+                      <td><span class="tooltip" data-tip="[SACC] Resumo diário de verificação contábil"><span class="block max-w-56 truncate">[SACC] Resumo diário de verificação contábil</span></span></td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" checked aria-label="Ativo"></td>
+                      <td class="tnum">3</td>
+                      <td>28/06/2026 14:40</td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200 opacity-70">
+                      <td>Template antigo (2025)</td>
+                      <td><span class="tooltip" data-tip="Alerta SACC — contas com natureza invertida"><span class="block max-w-56 truncate">Alerta SACC — contas com natureza invertida</span></span></td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" aria-label="Inativo"></td>
+                      <td class="tnum">12</td>
+                      <td>15/01/2026 10:05</td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="flex items-center justify-between px-4 py-3 border-t border-base-300">
+                <span class="text-xs text-base-content/60">Exibindo 1–3 de 3</span>
+                <div class="join">
+                  <button class="join-item btn btn-sm btn-active">1</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editor -->
+          <div class="divider text-xs uppercase text-base-content/60">Editor</div>
+
+          <div class="grid xl:grid-cols-2 gap-6 items-start">
+            <!-- Coluna edição -->
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+              <div class="card-body space-y-4">
+                <h2 class="text-lg font-semibold">Editar template</h2>
+                <div class="form-control w-full">
+                  <label class="label"><span class="label-text">Nome</span></label>
+                  <input type="text" class="input input-bordered w-full" value="Alerta padrão de viradas">
+                </div>
+                <div class="form-control w-full">
+                  <label class="label"><span class="label-text">Assunto</span></label>
+                  <input type="text" class="input input-bordered w-full" value="[SACC] Alerta de contas viradas — {{data_execucao}}">
+                </div>
+
+                <div>
+                  <!-- Toolbar TipTap -->
+                  <div class="bg-base-200 border border-base-300 rounded-t-lg p-1">
+                    <div class="join">
+                      <button class="btn btn-ghost btn-sm btn-square join-item btn-active" title="Negrito" aria-label="Negrito">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Itálico" aria-label="Itálico">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="10" y1="4" y2="4"/><line x1="14" x2="5" y1="20" y2="20"/><line x1="15" x2="9" y1="4" y2="20"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Sublinhado" aria-label="Sublinhado">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" x2="20" y1="20" y2="20"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Lista" aria-label="Lista">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Lista numerada" aria-label="Lista numerada">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="21" y1="6" y2="6"/><line x1="10" x2="21" y1="12" y2="12"/><line x1="10" x2="21" y1="18" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Link" aria-label="Link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Título" aria-label="Título">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8"/><path d="M4 18V6"/><path d="M12 18V6"/><path d="M21 18h-4c0-4 4-3 4-6 0-1.5-2-2.5-4-1"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Inserir tabela de viradas" aria-label="Inserir tabela de viradas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+                      </button>
+                      <button class="btn btn-ghost btn-sm btn-square join-item" title="Inserir variável" aria-label="Inserir variável">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Área de edição -->
+                  <div class="border border-base-300 border-t-0 rounded-b-lg min-h-96 p-4 prose prose-sm max-w-none bg-base-100">
+                    <p>Prezados,</p>
+                    <p>A verificação de <span class="badge badge-outline badge-primary badge-sm align-middle">{{data_execucao}}</span> identificou <span class="badge badge-outline badge-primary badge-sm align-middle">{{qtd_viradas}}</span> conta(s) com natureza invertida na empresa <span class="badge badge-outline badge-primary badge-sm align-middle">{{empresa}}</span>.</p>
+                    <p><span class="badge badge-outline badge-primary badge-sm align-middle">{{tabela_viradas}}</span></p>
+                    <p>Este é um e-mail automático do SACC. Não responda.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna preview -->
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+              <div class="card-body space-y-4">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-lg font-semibold">Pré-visualização</h2>
+                  <label class="label cursor-pointer gap-2">
+                    <span class="label-text text-xs">Dados de exemplo: com viradas</span>
+                    <input type="checkbox" class="toggle toggle-sm" checked>
+                  </label>
+                </div>
+                <div class="border border-base-300 rounded-lg overflow-hidden">
+                  <div class="bg-base-200 px-4 py-3 border-b border-base-300 text-xs space-y-1">
+                    <p><span class="text-base-content/60">De:</span> SACC &lt;sacc@exemplo.com.br&gt;</p>
+                    <p><span class="text-base-content/60">Para:</span> maria.silva@exemplo.com.br; joao.souza@exemplo.com.br</p>
+                    <p><span class="text-base-content/60">Assunto:</span> [SACC] Alerta de contas viradas — 02/07/2026</p>
+                  </div>
+                  <div class="p-4 text-sm space-y-3">
+                    <p>Prezados,</p>
+                    <p>A verificação de <strong>02/07/2026 07:00</strong> identificou <strong>2</strong> conta(s) com natureza invertida na empresa <strong>Empresa Exemplo Ltda</strong>.</p>
+                    <div class="overflow-x-auto">
+                      <table class="table table-sm border border-base-300">
+                        <thead class="text-xs uppercase text-base-content/60">
+                          <tr><th>Conta</th><th>Descrição</th><th>Esperada</th><th>Atual</th><th class="text-right">Saldo</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="tnum">1.1.02.001</td>
+                            <td>Bancos conta movimento</td>
+                            <td><span class="badge badge-sm badge-ghost font-semibold">D</span></td>
+                            <td><span class="badge badge-sm badge-error font-semibold">C</span></td>
+                            <td class="tnum text-right">-12.345,67</td>
+                          </tr>
+                          <tr>
+                            <td class="tnum">2.1.01.003</td>
+                            <td>Fornecedores nacionais</td>
+                            <td><span class="badge badge-sm badge-ghost font-semibold">C</span></td>
+                            <td><span class="badge badge-sm badge-error font-semibold">D</span></td>
+                            <td class="tnum text-right">4.980,00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="text-xs text-base-content/60">Este é um e-mail automático do SACC. Não responda.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rodapé do editor -->
+          <div class="flex justify-end gap-3 bg-base-100 border border-base-300 rounded-lg p-4 shadow-sm">
+            <button class="btn btn-outline">Cancelar</button>
+            <button class="btn btn-primary">Salvar</button>
+          </div>
+
+          <!-- Toast de exemplo (estático) -->
+          <div class="toast toast-end toast-bottom">
+            <div class="alert alert-success text-sm">Template salvo.</div>
+          </div>
+        </section>
+
+        <!-- ESTADO: LOADING -->
+        <section data-estado="loading" class="hidden space-y-6">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body p-0">
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <thead class="text-xs uppercase text-base-content/60">
+                    <tr><th>Nome</th><th>Assunto</th><th>Situação</th><th>Versão</th><th>Atualizado em</th><th class="text-right">Ações</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="6"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="6"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="6"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="6"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="6"><div class="skeleton h-4 w-full"></div></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Skeleton do editor -->
+          <div class="grid xl:grid-cols-2 gap-6">
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+              <div class="card-body space-y-4">
+                <div class="skeleton h-10 w-full"></div>
+                <div class="skeleton h-10 w-full"></div>
+                <div class="skeleton h-96 w-full"></div>
+              </div>
+            </div>
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+              <div class="card-body"><div class="skeleton h-full min-h-96 w-full"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: EMPTY -->
+        <section data-estado="empty" class="hidden">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body items-center text-center py-16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-base-content/30"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+              <h3 class="text-base font-medium mt-2">Nenhum template cadastrado</h3>
+              <p class="text-xs text-base-content/60">Crie o primeiro template para os alertas de contas viradas.</p>
+              <button class="btn btn-primary btn-sm mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Novo template
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: ERROR -->
+        <section data-estado="error" class="hidden">
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            <span>Não foi possível carregar os templates.</span>
+            <button class="btn btn-sm btn-outline">Tentar novamente</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Switcher de estados (canto inferior esquerdo): mostra/esconde <section data-estado="..."> -->
+<div class="fixed bottom-4 left-4 z-50 join shadow" data-theme="saccdark">
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('sucesso')">Sucesso</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('loading')">Loading</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('empty')">Empty</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('error')">Error</button>
+</div>
+<script>
+function mostrarEstado(e){
+  document.querySelectorAll('[data-estado]').forEach(s=>s.classList.toggle('hidden', s.dataset.estado!==e));
+}
+mostrarEstado('sucesso');
+</script>
+</body>
+</html>

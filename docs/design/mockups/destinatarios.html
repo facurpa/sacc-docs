@@ -1,0 +1,268 @@
+<!-- Bloco <head> + shell compartilhado dos mockups do SACC.
+     Copiar este bloco em cada mockup para garantir consistência.
+     CDN usado APENAS para visualização dos mockups; o produto real usa build normal. -->
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="sacc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACC — Destinatários (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "sacc"; default: true; color-scheme: light;
+  --color-primary: #155E75;   --color-primary-content: #FFFFFF;
+  --color-secondary: #475569; --color-secondary-content: #FFFFFF;
+  --color-accent: #0D9488;    --color-accent-content: #FFFFFF;
+  --color-neutral: #1E293B;   --color-neutral-content: #F1F5F9;
+  --color-base-100: #FFFFFF;  --color-base-200: #F1F5F9;
+  --color-base-300: #E2E8F0;  --color-base-content: #0F172A;
+  --color-info: #0369A1;      --color-info-content: #FFFFFF;
+  --color-success: #15803D;   --color-success-content: #FFFFFF;
+  --color-warning: #B45309;   --color-warning-content: #FFFFFF;
+  --color-error: #B91C1C;     --color-error-content: #FFFFFF;
+}
+@plugin "daisyui/theme" {
+  name: "saccdark"; color-scheme: dark;
+  --color-primary: #38BDF8;   --color-primary-content: #082F49;
+  --color-secondary: #94A3B8; --color-secondary-content: #0F172A;
+  --color-accent: #2DD4BF;    --color-accent-content: #042F2E;
+  --color-neutral: #334155;   --color-neutral-content: #E2E8F0;
+  --color-base-100: #0F172A;  --color-base-200: #1E293B;
+  --color-base-300: #334155;  --color-base-content: #CBD5E1;
+  --color-info: #38BDF8;      --color-info-content: #082F49;
+  --color-success: #4ADE80;   --color-success-content: #052E16;
+  --color-warning: #FBBF24;   --color-warning-content: #451A03;
+  --color-error: #F87171;     --color-error-content: #450A0A;
+}
+body { font-family: 'Inter', system-ui, sans-serif; }
+.tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="bg-base-200 min-h-screen">
+<!-- App shell: sidebar dark (data-theme="saccdark") + topbar. Ver design-system.md. -->
+<div class="flex min-h-screen">
+  <aside data-theme="saccdark" class="w-64 shrink-0 bg-base-100 text-base-content flex flex-col">
+    <div class="h-16 flex items-center gap-2 px-4 border-b border-base-300">
+      <span class="font-bold text-lg text-primary">SACC</span>
+      <span class="text-xs opacity-60">Alertas Contábeis</span>
+    </div>
+    <nav class="flex-1 p-2">
+      <ul class="menu gap-1">
+        <li><a>Dashboard</a></li>
+        <li><a>Execuções</a></li>
+        <li><a>Plano de Contas</a></li>
+        <li><a class="active">Destinatários</a></li>
+        <li><a>Templates de E-mail</a></li>
+        <li class="menu-title mt-2">Administração</li>
+        <li><a>Usuários</a></li>
+        <li><a>Auditoria</a></li>
+        <li><a>Configurações</a></li>
+      </ul>
+    </nav>
+    <div class="p-4 border-t border-base-300 text-xs opacity-60">Cast Informática</div>
+  </aside>
+  <div class="flex-1 flex flex-col">
+    <header class="h-16 bg-base-100 border-b border-base-300 flex items-center justify-between px-6">
+      <span class="text-sm text-base-content/60">Ambiente interno</span>
+      <div class="flex items-center gap-3">
+        <span class="text-sm">Maria Silva</span>
+        <div class="avatar placeholder"><div class="bg-neutral text-neutral-content w-8 rounded-full"><span class="text-xs">MS</span></div></div>
+      </div>
+    </header>
+    <main class="flex-1 p-6">
+      <div class="max-w-screen-xl mx-auto space-y-6">
+
+        <!-- Cabeçalho da página (comum a todos os estados) -->
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-semibold">Destinatários</h1>
+          <button class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            Novo destinatário
+          </button>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-3">
+          <label class="input input-bordered input-sm flex items-center gap-2 w-64">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" class="grow" placeholder="Buscar por nome ou e-mail">
+          </label>
+          <select class="select select-bordered select-sm">
+            <option>Situação: Todas</option>
+            <option>Ativos</option>
+            <option>Inativos</option>
+          </select>
+        </div>
+
+        <!-- ESTADO: SUCESSO -->
+        <section data-estado="sucesso" class="space-y-6">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body p-0">
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <thead class="text-xs uppercase text-base-content/60">
+                    <tr><th>Nome</th><th>E-mail</th><th>Situação</th><th class="text-right">Ações</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="hover:bg-base-200">
+                      <td>Maria Silva</td>
+                      <td>maria.silva@exemplo.com.br</td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" checked aria-label="Ativo"></td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200">
+                      <td>João Souza</td>
+                      <td>joao.souza@exemplo.com.br</td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" checked aria-label="Ativo"></td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200">
+                      <td>Ana Pereira</td>
+                      <td>ana.pereira@exemplo.com.br</td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" checked aria-label="Ativo"></td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200 opacity-70">
+                      <td>Carlos Lima</td>
+                      <td>carlos.lima@exemplo.com.br</td>
+                      <td><input type="checkbox" class="toggle toggle-success toggle-sm" aria-label="Inativo"></td>
+                      <td class="text-right"><button class="btn btn-ghost btn-sm">Editar</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="flex items-center justify-between px-4 py-3 border-t border-base-300">
+                <span class="text-xs text-base-content/60">Exibindo 1–4 de 4</span>
+                <div class="join">
+                  <button class="join-item btn btn-sm btn-active">1</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toast de exemplo (estático) -->
+          <div class="toast toast-end toast-bottom">
+            <div class="alert alert-success text-sm">Destinatário criado com sucesso.</div>
+          </div>
+
+          <!-- Modais (exemplos estáticos) -->
+          <div class="divider text-xs uppercase text-base-content/60">Modais</div>
+          <div class="grid gap-6 xl:grid-cols-2 items-start">
+
+            <!-- NovoDestinatarioModal -->
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+              <div class="card-body">
+                <span class="text-xs text-base-content/60 uppercase tracking-wide">NovoDestinatarioModal</span>
+                <div class="modal-box max-w-lg border border-base-300 shadow-sm mx-auto">
+                  <h3 class="text-base font-medium">Novo destinatário</h3>
+                  <div class="space-y-4 mt-4">
+                    <div class="form-control w-full">
+                      <label class="label"><span class="label-text">Nome</span></label>
+                      <input type="text" class="input input-bordered w-full" value="João Souza">
+                    </div>
+                    <div class="form-control w-full">
+                      <label class="label"><span class="label-text">E-mail</span></label>
+                      <input type="email" class="input input-bordered input-error w-full" value="joao.souza@exemplo">
+                      <label class="label"><span class="label-text-alt text-error">Informe um e-mail válido.</span></label>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <button class="btn btn-outline">Cancelar</button>
+                    <button class="btn btn-primary">Salvar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ConfirmarAcaoModal — desativação -->
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+              <div class="card-body">
+                <span class="text-xs text-base-content/60 uppercase tracking-wide">ConfirmarAcaoModal — desativação</span>
+                <div class="modal-box max-w-lg border border-base-300 shadow-sm mx-auto">
+                  <div class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-error shrink-0 mt-0.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                    <div>
+                      <h3 class="text-base font-medium">Desativar destinatário?</h3>
+                      <p class="text-sm mt-2">Ele deixará de receber os alertas de contas viradas.</p>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <button class="btn btn-outline">Cancelar</button>
+                    <button class="btn btn-error">Desativar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: LOADING -->
+        <section data-estado="loading" class="hidden">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body p-0">
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <thead class="text-xs uppercase text-base-content/60">
+                    <tr><th>Nome</th><th>E-mail</th><th>Situação</th><th class="text-right">Ações</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="4"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="4"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="4"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="4"><div class="skeleton h-4 w-full"></div></td></tr>
+                    <tr><td colspan="4"><div class="skeleton h-4 w-full"></div></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: EMPTY -->
+        <section data-estado="empty" class="hidden">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body items-center text-center py-16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-base-content/30"><rect width="16" height="13" x="6" y="4" rx="2"/><path d="m22 7-7.1 3.78c-.57.3-1.23.3-1.8 0L6 7"/><path d="M2 8v11c0 1.1.9 2 2 2h14"/></svg>
+              <h3 class="text-base font-medium mt-2">Nenhum destinatário cadastrado</h3>
+              <p class="text-xs text-base-content/60">Cadastre quem deve receber os alertas de contas viradas.</p>
+              <button class="btn btn-primary btn-sm mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Novo destinatário
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: ERROR -->
+        <section data-estado="error" class="hidden">
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            <span>Não foi possível carregar os destinatários.</span>
+            <button class="btn btn-sm btn-outline">Tentar novamente</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Switcher de estados (canto inferior esquerdo): mostra/esconde <section data-estado="..."> -->
+<div class="fixed bottom-4 left-4 z-50 join shadow" data-theme="saccdark">
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('sucesso')">Sucesso</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('loading')">Loading</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('empty')">Empty</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('error')">Error</button>
+</div>
+<script>
+function mostrarEstado(e){
+  document.querySelectorAll('[data-estado]').forEach(s=>s.classList.toggle('hidden', s.dataset.estado!==e));
+}
+mostrarEstado('sucesso');
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACC — Alerta de contas viradas</title>
+</head>
+<body style="margin:0; padding:0; background-color:#F1F5F9;">
+  <!-- Dados fictícios de exemplo. Placeholders {{...}} são substituídos pelo worker. -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F1F5F9; padding:24px 0;">
+    <tr><td align="center">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:100%; background-color:#FFFFFF; border:1px solid #E2E8F0; border-radius:8px; overflow:hidden; font-family:Arial, Helvetica, sans-serif;">
+
+        <!-- Header -->
+        <tr>
+          <td style="background-color:#0F172A; padding:20px 32px;">
+            <span style="font-size:20px; font-weight:bold; color:#38BDF8;">SACC</span>
+            <span style="font-size:12px; color:#CBD5E1;">&nbsp;&nbsp;Sistema de Alertas Cont&aacute;beis &middot; Cast Inform&aacute;tica</span>
+          </td>
+        </tr>
+
+        <!-- Título e resumo -->
+        <tr>
+          <td style="padding:28px 32px 8px 32px;">
+            <p style="margin:0; font-size:18px; font-weight:bold; color:#B91C1C;">&#9888;&nbsp;3 contas com saldo invertido</p>
+            <p style="margin:12px 0 0 0; font-size:14px; color:#0F172A; line-height:1.5;">
+              A verifica&ccedil;&atilde;o autom&aacute;tica de <strong>02/07/2026 07:00</strong> (hor&aacute;rio de Bras&iacute;lia)
+              detectou contas da <strong>Filial 01</strong> com natureza oposta &agrave; esperada.
+            </p>
+          </td>
+        </tr>
+
+        <!-- Tabela de viradas ({{tabela_viradas}}) -->
+        <tr>
+          <td style="padding:20px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E2E8F0; border-collapse:collapse; font-size:13px;">
+              <tr style="background-color:#F1F5F9;">
+                <th align="left" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#475569; font-size:12px; text-transform:uppercase;">Conta</th>
+                <th align="left" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#475569; font-size:12px; text-transform:uppercase;">Descri&ccedil;&atilde;o</th>
+                <th align="center" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#475569; font-size:12px; text-transform:uppercase;">Esperada</th>
+                <th align="center" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#475569; font-size:12px; text-transform:uppercase;">Lado atual</th>
+              </tr>
+              <tr>
+                <td style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#0F172A;">1.1.02.001</td>
+                <td style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#0F172A;">Clientes nacionais</td>
+                <td align="center" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#475569;">D</td>
+                <td align="center" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#B91C1C; font-weight:bold;">C</td>
+              </tr>
+              <tr style="background-color:#F8FAFC;">
+                <td style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#0F172A;">2.1.01.003</td>
+                <td style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#0F172A;">Fornecedores nacionais</td>
+                <td align="center" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#475569;">C</td>
+                <td align="center" style="padding:10px 12px; border-bottom:1px solid #E2E8F0; color:#B91C1C; font-weight:bold;">D</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 12px; color:#0F172A;">1.1.01.005</td>
+                <td style="padding:10px 12px; color:#0F172A;">Bancos conta movimento</td>
+                <td align="center" style="padding:10px 12px; color:#475569;">D</td>
+                <td align="center" style="padding:10px 12px; color:#B91C1C; font-weight:bold;">C</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- CTA opcional -->
+        <tr>
+          <td align="center" style="padding:4px 32px 24px 32px;">
+            <table role="presentation" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="background-color:#155E75; border-radius:6px;">
+                  <a href="#" style="display:inline-block; padding:10px 24px; font-size:14px; font-weight:bold; color:#FFFFFF; text-decoration:none;">Abrir o SACC</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Rodapé -->
+        <tr>
+          <td style="background-color:#F8FAFC; border-top:1px solid #E2E8F0; padding:16px 32px;">
+            <p style="margin:0; font-size:12px; color:#64748B; line-height:1.5;">
+              E-mail autom&aacute;tico do SACC. A corre&ccedil;&atilde;o dos lan&ccedil;amentos &eacute; feita diretamente no ERP.<br>
+              Enviado em 02/07/2026 07:01 (hor&aacute;rio de Bras&iacute;lia).
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

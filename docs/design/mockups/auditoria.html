@@ -1,0 +1,300 @@
+<!-- Bloco <head> + shell compartilhado dos mockups do SACC.
+     Copiar este bloco em cada mockup para garantir consistência.
+     CDN usado APENAS para visualização dos mockups; o produto real usa build normal. -->
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="sacc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACC — Auditoria (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "sacc"; default: true; color-scheme: light;
+  --color-primary: #155E75;   --color-primary-content: #FFFFFF;
+  --color-secondary: #475569; --color-secondary-content: #FFFFFF;
+  --color-accent: #0D9488;    --color-accent-content: #FFFFFF;
+  --color-neutral: #1E293B;   --color-neutral-content: #F1F5F9;
+  --color-base-100: #FFFFFF;  --color-base-200: #F1F5F9;
+  --color-base-300: #E2E8F0;  --color-base-content: #0F172A;
+  --color-info: #0369A1;      --color-info-content: #FFFFFF;
+  --color-success: #15803D;   --color-success-content: #FFFFFF;
+  --color-warning: #B45309;   --color-warning-content: #FFFFFF;
+  --color-error: #B91C1C;     --color-error-content: #FFFFFF;
+}
+@plugin "daisyui/theme" {
+  name: "saccdark"; color-scheme: dark;
+  --color-primary: #38BDF8;   --color-primary-content: #082F49;
+  --color-secondary: #94A3B8; --color-secondary-content: #0F172A;
+  --color-accent: #2DD4BF;    --color-accent-content: #042F2E;
+  --color-neutral: #334155;   --color-neutral-content: #E2E8F0;
+  --color-base-100: #0F172A;  --color-base-200: #1E293B;
+  --color-base-300: #334155;  --color-base-content: #CBD5E1;
+  --color-info: #38BDF8;      --color-info-content: #082F49;
+  --color-success: #4ADE80;   --color-success-content: #052E16;
+  --color-warning: #FBBF24;   --color-warning-content: #451A03;
+  --color-error: #F87171;     --color-error-content: #450A0A;
+}
+body { font-family: 'Inter', system-ui, sans-serif; }
+.tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="bg-base-200 min-h-screen">
+<!-- App shell: sidebar dark (data-theme="saccdark") + topbar. Ver design-system.md. -->
+<div class="flex min-h-screen">
+  <aside data-theme="saccdark" class="w-64 shrink-0 bg-base-100 text-base-content flex flex-col">
+    <div class="h-16 flex items-center gap-2 px-4 border-b border-base-300">
+      <span class="font-bold text-lg text-primary">SACC</span>
+      <span class="text-xs opacity-60">Alertas Contábeis</span>
+    </div>
+    <nav class="flex-1 p-2">
+      <ul class="menu gap-1">
+        <li><a>Dashboard</a></li>
+        <li><a>Execuções</a></li>
+        <li><a>Plano de Contas</a></li>
+        <li><a>Destinatários</a></li>
+        <li><a>Templates de E-mail</a></li>
+        <li class="menu-title mt-2">Administração</li>
+        <li><a>Usuários</a></li>
+        <li><a class="active">Auditoria</a></li>
+        <li><a>Configurações</a></li>
+      </ul>
+    </nav>
+    <div class="p-4 border-t border-base-300 text-xs opacity-60">Cast Informática</div>
+  </aside>
+  <div class="flex-1 flex flex-col">
+    <header class="h-16 bg-base-100 border-b border-base-300 flex items-center justify-between px-6">
+      <span class="text-sm text-base-content/60">Ambiente interno</span>
+      <div class="flex items-center gap-3">
+        <span class="text-sm">Maria Silva</span>
+        <div class="avatar placeholder"><div class="bg-neutral text-neutral-content w-8 rounded-full"><span class="text-xs">MS</span></div></div>
+      </div>
+    </header>
+    <main class="flex-1 p-6">
+      <div class="max-w-screen-xl mx-auto space-y-6">
+        <h1 class="text-2xl font-semibold">Auditoria</h1>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-3 items-end">
+          <label class="form-control">
+            <span class="label-text text-xs mb-1">Entidade</span>
+            <select class="select select-bordered select-sm">
+              <option>Todas</option>
+              <option>Destinatário</option>
+              <option>Usuário</option>
+              <option>Template</option>
+              <option>Configuração</option>
+              <option>Execução</option>
+            </select>
+          </label>
+          <label class="form-control">
+            <span class="label-text text-xs mb-1">Ação</span>
+            <select class="select select-bordered select-sm">
+              <option>Todas</option>
+              <option>Criou</option>
+              <option>Atualizou</option>
+              <option>Desativou</option>
+              <option>Reativou</option>
+              <option>Redefiniu senha</option>
+              <option>Executou</option>
+            </select>
+          </label>
+          <label class="form-control">
+            <span class="label-text text-xs mb-1">Usuário</span>
+            <select class="select select-bordered select-sm">
+              <option>Todos</option>
+              <option>Maria Silva</option>
+              <option>Sistema</option>
+            </select>
+          </label>
+          <label class="form-control">
+            <span class="label-text text-xs mb-1">De</span>
+            <input type="date" class="input input-bordered input-sm" value="2026-07-01">
+          </label>
+          <label class="form-control">
+            <span class="label-text text-xs mb-1">Até</span>
+            <input type="date" class="input input-bordered input-sm" value="2026-07-02">
+          </label>
+        </div>
+
+        <!-- ESTADO: SUCESSO -->
+        <section data-estado="sucesso" class="card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body p-0">
+            <div class="overflow-x-auto">
+              <table class="table table-sm">
+                <thead>
+                  <tr class="text-xs uppercase text-base-content/60">
+                    <th>Quando</th>
+                    <th>Usuário</th>
+                    <th>Ação</th>
+                    <th>Entidade</th>
+                    <th class="text-right">Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover:bg-base-200">
+                    <td class="tnum whitespace-nowrap">02/07/2026 09:42:17</td>
+                    <td>Maria Silva</td>
+                    <td><span class="badge badge-ghost badge-sm">Atualizou</span></td>
+                    <td>Destinatário · João Pereira</td>
+                    <td class="text-right">
+                      <button class="btn btn-ghost btn-sm" aria-expanded="true" aria-label="Recolher detalhes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Linha expandida: DiffEvento -->
+                  <tr class="bg-base-200/60">
+                    <td colspan="5" class="p-4">
+                      <div class="text-xs uppercase tracking-wide text-base-content/60 mb-2">Campos alterados</div>
+                      <div class="grid grid-cols-[10rem_1fr_1fr] gap-x-4 gap-y-2 text-sm max-w-3xl">
+                        <div class="text-xs uppercase text-base-content/60">Campo</div>
+                        <div class="text-xs uppercase text-base-content/60">Antes</div>
+                        <div class="text-xs uppercase text-base-content/60">Depois</div>
+
+                        <div>E-mail</div>
+                        <div class="flex items-center gap-2">
+                          <span class="text-base-content/60 line-through decoration-base-content/30">antigo@exemplo.com.br</span>
+                          <svg class="text-base-content/40 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+                        </div>
+                        <div class="font-medium">novo@exemplo.com.br</div>
+
+                        <div>Situação</div>
+                        <div class="flex items-center gap-2">
+                          <span class="text-base-content/60 line-through decoration-base-content/30">Ativo</span>
+                          <svg class="text-base-content/40 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+                        </div>
+                        <div class="font-medium">Inativo</div>
+
+                        <div>Senha</div>
+                        <div class="flex items-center gap-2">
+                          <span class="text-base-content/60 line-through decoration-base-content/30">•••</span>
+                          <svg class="text-base-content/40 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+                        </div>
+                        <div class="font-medium">••• <span class="text-xs text-base-content/60 font-normal">(valor oculto)</span></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-base-200">
+                    <td class="tnum whitespace-nowrap">02/07/2026 07:00:03</td>
+                    <td>Sistema</td>
+                    <td><span class="badge badge-ghost badge-sm">Executou</span></td>
+                    <td>Execução · Verificação agendada</td>
+                    <td class="text-right">
+                      <button class="btn btn-ghost btn-sm" aria-label="Expandir detalhes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-base-200">
+                    <td class="tnum whitespace-nowrap">01/07/2026 16:25:48</td>
+                    <td>Maria Silva</td>
+                    <td><span class="badge badge-ghost badge-sm">Criou</span></td>
+                    <td>Destinatário · Ana Souza</td>
+                    <td class="text-right">
+                      <button class="btn btn-ghost btn-sm" aria-label="Expandir detalhes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-base-200">
+                    <td class="tnum whitespace-nowrap">01/07/2026 14:10:12</td>
+                    <td>Maria Silva</td>
+                    <td><span class="badge badge-ghost badge-sm">Redefiniu senha</span></td>
+                    <td>Usuário · Carlos Lima</td>
+                    <td class="text-right">
+                      <button class="btn btn-ghost btn-sm" aria-label="Expandir detalhes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-base-200">
+                    <td class="tnum whitespace-nowrap">01/07/2026 09:05:31</td>
+                    <td>Maria Silva</td>
+                    <td><span class="badge badge-ghost badge-sm">Desativou</span></td>
+                    <td>Template · Alerta padrão v1</td>
+                    <td class="text-right">
+                      <button class="btn btn-ghost btn-sm" aria-label="Expandir detalhes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between px-4 py-3 border-t border-base-300">
+              <span class="text-xs text-base-content/60">Exibindo 1–5 de 42</span>
+              <div class="join">
+                <button class="join-item btn btn-sm">«</button>
+                <button class="join-item btn btn-sm btn-active">1</button>
+                <button class="join-item btn btn-sm">2</button>
+                <button class="join-item btn btn-sm">3</button>
+                <button class="join-item btn btn-sm">»</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: LOADING -->
+        <section data-estado="loading" class="hidden card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body p-0">
+            <div class="overflow-x-auto">
+              <table class="table table-sm">
+                <thead>
+                  <tr class="text-xs uppercase text-base-content/60">
+                    <th>Quando</th><th>Usuário</th><th>Ação</th><th>Entidade</th><th class="text-right">Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td colspan="5"><div class="skeleton h-4 w-full"></div></td></tr>
+                  <tr><td colspan="5"><div class="skeleton h-4 w-full"></div></td></tr>
+                  <tr><td colspan="5"><div class="skeleton h-4 w-full"></div></td></tr>
+                  <tr><td colspan="5"><div class="skeleton h-4 w-full"></div></td></tr>
+                  <tr><td colspan="5"><div class="skeleton h-4 w-full"></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: EMPTY -->
+        <section data-estado="empty" class="hidden card bg-base-100 border border-base-300 shadow-sm">
+          <div class="card-body items-center text-center py-16">
+            <svg class="text-base-content/30" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+            <h3 class="text-base font-medium mt-3">Nenhum evento encontrado para os filtros selecionados.</h3>
+            <p class="text-xs text-base-content/60">Ajuste os filtros ou limpe-os para ver todos os eventos.</p>
+            <button class="btn btn-sm btn-outline mt-2">Limpar filtros</button>
+          </div>
+        </section>
+
+        <!-- ESTADO: ERROR -->
+        <section data-estado="error" class="hidden">
+          <div class="alert alert-error">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>Não foi possível carregar a auditoria.</span>
+            <button class="btn btn-sm btn-outline">Tentar novamente</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Switcher de estados (canto inferior esquerdo): mostra/esconde <section data-estado="..."> -->
+<div class="fixed bottom-4 left-4 z-50 join shadow" data-theme="saccdark">
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('sucesso')">Sucesso</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('loading')">Loading</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('empty')">Empty</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('error')">Error</button>
+</div>
+<script>
+function mostrarEstado(e){
+  document.querySelectorAll('[data-estado]').forEach(s=>s.classList.toggle('hidden', s.dataset.estado!==e));
+}
+mostrarEstado('sucesso');
+</script>
+</body>
+</html>
