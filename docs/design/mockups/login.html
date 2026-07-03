@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="saccdark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACC — Mockup: Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "sacc"; color-scheme: light;
+  --color-primary: #155E75;   --color-primary-content: #FFFFFF;
+  --color-secondary: #475569; --color-secondary-content: #FFFFFF;
+  --color-accent: #0D9488;    --color-accent-content: #FFFFFF;
+  --color-neutral: #1E293B;   --color-neutral-content: #F1F5F9;
+  --color-base-100: #FFFFFF;  --color-base-200: #F1F5F9;
+  --color-base-300: #E2E8F0;  --color-base-content: #0F172A;
+  --color-info: #0369A1;      --color-info-content: #FFFFFF;
+  --color-success: #15803D;   --color-success-content: #FFFFFF;
+  --color-warning: #B45309;   --color-warning-content: #FFFFFF;
+  --color-error: #B91C1C;     --color-error-content: #FFFFFF;
+}
+@plugin "daisyui/theme" {
+  name: "saccdark"; default: true; color-scheme: dark;
+  --color-primary: #38BDF8;   --color-primary-content: #082F49;
+  --color-secondary: #94A3B8; --color-secondary-content: #0F172A;
+  --color-accent: #2DD4BF;    --color-accent-content: #042F2E;
+  --color-neutral: #334155;   --color-neutral-content: #E2E8F0;
+  --color-base-100: #0F172A;  --color-base-200: #1E293B;
+  --color-base-300: #334155;  --color-base-content: #CBD5E1;
+  --color-info: #38BDF8;      --color-info-content: #082F49;
+  --color-success: #4ADE80;   --color-success-content: #052E16;
+  --color-warning: #FBBF24;   --color-warning-content: #451A03;
+  --color-error: #F87171;     --color-error-content: #450A0A;
+}
+body { font-family: 'Inter', system-ui, sans-serif; }
+</style>
+</head>
+<body class="bg-base-100 min-h-screen flex items-center justify-center p-6">
+
+<!-- ESTADO: SUCESSO (formulário padrão) -->
+<section data-estado="sucesso" class="w-full max-w-sm">
+  <div class="card bg-base-200 border border-base-300 shadow-sm">
+    <div class="card-body space-y-4">
+      <div class="text-center space-y-1">
+        <p class="text-2xl font-bold text-primary">SACC</p>
+        <p class="text-xs opacity-60">Sistema de Alertas Contábeis · Cast Informática</p>
+      </div>
+      <label class="form-control">
+        <div class="label"><span class="label-text">E-mail</span></div>
+        <input type="email" class="input input-bordered w-full" placeholder="voce@exemplo.com.br">
+      </label>
+      <label class="form-control">
+        <div class="label"><span class="label-text">Senha</span></div>
+        <div class="input input-bordered w-full flex items-center gap-2">
+          <input type="password" class="grow" value="............">
+          <button aria-label="Mostrar senha" class="opacity-60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+      </label>
+      <button class="btn btn-primary btn-block">Entrar</button>
+    </div>
+  </div>
+</section>
+
+<!-- ESTADO: LOADING -->
+<section data-estado="loading" class="hidden w-full max-w-sm">
+  <div class="card bg-base-200 border border-base-300 shadow-sm">
+    <div class="card-body space-y-4">
+      <div class="text-center space-y-1">
+        <p class="text-2xl font-bold text-primary">SACC</p>
+        <p class="text-xs opacity-60">Sistema de Alertas Contábeis · Cast Informática</p>
+      </div>
+      <label class="form-control">
+        <div class="label"><span class="label-text">E-mail</span></div>
+        <input type="email" class="input input-bordered w-full" value="maria.silva@exemplo.com.br" disabled>
+      </label>
+      <label class="form-control">
+        <div class="label"><span class="label-text">Senha</span></div>
+        <input type="password" class="input input-bordered w-full" value="............" disabled>
+      </label>
+      <button class="btn btn-primary btn-block" disabled>
+        <span class="loading loading-spinner loading-sm"></span> Entrando…
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ESTADO: "EMPTY" = Troca de senha obrigatória -->
+<section data-estado="empty" class="hidden w-full max-w-sm">
+  <div class="card bg-base-200 border border-base-300 shadow-sm">
+    <div class="card-body space-y-4">
+      <div class="text-center space-y-1">
+        <p class="text-2xl font-bold text-primary">SACC</p>
+        <p class="text-xs opacity-60">Sistema de Alertas Contábeis · Cast Informática</p>
+      </div>
+      <h3 class="text-base font-medium">Definir nova senha</h3>
+      <div class="alert alert-info text-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <span>Por segurança, defina uma nova senha para continuar.</span>
+      </div>
+      <label class="form-control">
+        <div class="label"><span class="label-text">Nova senha</span></div>
+        <input type="password" class="input input-bordered input-error w-full" value="curta">
+        <div class="label"><span class="label-text-alt text-error">A senha deve ter pelo menos 12 caracteres.</span></div>
+      </label>
+      <label class="form-control">
+        <div class="label"><span class="label-text">Confirmar nova senha</span></div>
+        <input type="password" class="input input-bordered input-error w-full" value="diferente">
+        <div class="label"><span class="label-text-alt text-error">As senhas não coincidem.</span></div>
+      </label>
+      <button class="btn btn-primary btn-block">Salvar nova senha</button>
+    </div>
+  </div>
+</section>
+
+<!-- ESTADO: ERROR (credenciais inválidas + variante lockout) -->
+<section data-estado="error" class="hidden w-full max-w-sm space-y-6">
+  <div class="card bg-base-200 border border-base-300 shadow-sm">
+    <div class="card-body space-y-4">
+      <div class="text-center space-y-1">
+        <p class="text-2xl font-bold text-primary">SACC</p>
+        <p class="text-xs opacity-60">Sistema de Alertas Contábeis · Cast Informática</p>
+      </div>
+      <label class="form-control">
+        <div class="label"><span class="label-text">E-mail</span></div>
+        <input type="email" class="input input-bordered w-full" value="maria.silva@exemplo.com.br">
+      </label>
+      <label class="form-control">
+        <div class="label"><span class="label-text">Senha</span></div>
+        <input type="password" class="input input-bordered w-full" value="............">
+      </label>
+      <div class="alert alert-error text-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        <span>E-mail ou senha incorretos.</span>
+      </div>
+      <button class="btn btn-primary btn-block">Entrar</button>
+    </div>
+  </div>
+
+  <div class="divider text-xs opacity-60">Variante: lockout</div>
+
+  <div class="card bg-base-200 border border-base-300 shadow-sm">
+    <div class="card-body">
+      <div class="alert alert-error text-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Conta bloqueada temporariamente por excesso de tentativas. Tente novamente em alguns minutos.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fixed bottom-4 left-4 z-50 join shadow">
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('sucesso')">Login</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('loading')">Loading</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('empty')">Troca de senha</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('error')">Error</button>
+</div>
+<script>
+function mostrarEstado(e){document.querySelectorAll('[data-estado]').forEach(s=>s.classList.toggle('hidden', s.dataset.estado!==e));}
+mostrarEstado('sucesso');
+</script>
+</body>
+</html>

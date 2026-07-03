@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="sacc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACC — Mockup: Execuções</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "sacc"; default: true; color-scheme: light;
+  --color-primary: #155E75;   --color-primary-content: #FFFFFF;
+  --color-secondary: #475569; --color-secondary-content: #FFFFFF;
+  --color-accent: #0D9488;    --color-accent-content: #FFFFFF;
+  --color-neutral: #1E293B;   --color-neutral-content: #F1F5F9;
+  --color-base-100: #FFFFFF;  --color-base-200: #F1F5F9;
+  --color-base-300: #E2E8F0;  --color-base-content: #0F172A;
+  --color-info: #0369A1;      --color-info-content: #FFFFFF;
+  --color-success: #15803D;   --color-success-content: #FFFFFF;
+  --color-warning: #B45309;   --color-warning-content: #FFFFFF;
+  --color-error: #B91C1C;     --color-error-content: #FFFFFF;
+}
+@plugin "daisyui/theme" {
+  name: "saccdark"; color-scheme: dark;
+  --color-primary: #38BDF8;   --color-primary-content: #082F49;
+  --color-secondary: #94A3B8; --color-secondary-content: #0F172A;
+  --color-accent: #2DD4BF;    --color-accent-content: #042F2E;
+  --color-neutral: #334155;   --color-neutral-content: #E2E8F0;
+  --color-base-100: #0F172A;  --color-base-200: #1E293B;
+  --color-base-300: #334155;  --color-base-content: #CBD5E1;
+  --color-info: #38BDF8;      --color-info-content: #082F49;
+  --color-success: #4ADE80;   --color-success-content: #052E16;
+  --color-warning: #FBBF24;   --color-warning-content: #451A03;
+  --color-error: #F87171;     --color-error-content: #450A0A;
+}
+body { font-family: 'Inter', system-ui, sans-serif; }
+.tnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="bg-base-200 min-h-screen">
+<div class="flex min-h-screen">
+  <aside data-theme="saccdark" class="w-64 shrink-0 bg-base-100 text-base-content flex flex-col">
+    <div class="h-16 flex items-center gap-2 px-4 border-b border-base-300">
+      <span class="font-bold text-lg text-primary">SACC</span>
+      <span class="text-xs opacity-60">Alertas Contábeis</span>
+    </div>
+    <nav class="flex-1 p-2">
+      <ul class="menu gap-1">
+        <li><a>Dashboard</a></li>
+        <li><a class="active">Execuções</a></li>
+        <li><a>Plano de Contas</a></li>
+        <li><a>Destinatários</a></li>
+        <li><a>Templates de E-mail</a></li>
+        <li class="menu-title mt-2">Administração</li>
+        <li><a>Usuários</a></li>
+        <li><a>Auditoria</a></li>
+        <li><a>Configurações</a></li>
+      </ul>
+    </nav>
+    <div class="p-4 border-t border-base-300 text-xs opacity-60">Cast Informática</div>
+  </aside>
+  <div class="flex-1 flex flex-col">
+    <header class="h-16 bg-base-100 border-b border-base-300 flex items-center justify-between px-6">
+      <span class="text-sm text-base-content/60">Ambiente interno</span>
+      <div class="flex items-center gap-3">
+        <span class="text-sm">Maria Silva</span>
+        <div class="avatar placeholder"><div class="bg-neutral text-neutral-content w-8 rounded-full"><span class="text-xs">MS</span></div></div>
+      </div>
+    </header>
+    <main class="flex-1 p-6">
+      <div class="max-w-screen-xl mx-auto space-y-6">
+
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-semibold">Execuções</h1>
+          <button class="btn btn-outline btn-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            Executar agora
+          </button>
+        </div>
+
+        <!-- ESTADO: SUCESSO -->
+        <section data-estado="sucesso" class="space-y-6">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body p-4 space-y-4">
+              <div class="flex flex-wrap gap-3">
+                <select class="select select-bordered select-sm"><option>Status: todos</option><option>Executando</option><option>Sucesso</option><option>Sem alertas</option><option>Erro</option></select>
+                <select class="select select-bordered select-sm"><option>Tipo: todos</option><option>Agendada</option><option>Manual</option></select>
+                <input type="date" class="input input-bordered input-sm" value="2026-06-25" aria-label="De">
+                <input type="date" class="input input-bordered input-sm" value="2026-07-02" aria-label="Até">
+              </div>
+              <div class="overflow-x-auto">
+                <table class="table table-sm">
+                  <thead><tr class="text-xs uppercase text-base-content/60">
+                    <th>Início</th><th>Status</th><th>Tipo</th><th class="text-right">Duração</th><th class="text-right">Analisadas</th><th class="text-right">Viradas</th><th>Alerta</th><th></th>
+                  </tr></thead>
+                  <tbody>
+                    <tr class="hover:bg-base-200">
+                      <td class="tnum">02/07/2026 09:14</td>
+                      <td><span class="badge badge-warning badge-sm">Executando</span></td>
+                      <td><span class="badge badge-ghost badge-sm">Manual</span></td>
+                      <td class="tnum text-right">—</td><td class="tnum text-right">—</td><td class="tnum text-right">—</td>
+                      <td></td><td><button class="btn btn-ghost btn-sm">Detalhes</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200">
+                      <td class="tnum">02/07/2026 07:00</td>
+                      <td><span class="badge badge-success badge-sm">Sucesso</span></td>
+                      <td><span class="badge badge-ghost badge-sm">Agendada</span></td>
+                      <td class="tnum text-right">1min 42s</td><td class="tnum text-right">1.284</td>
+                      <td class="tnum text-right text-error font-semibold">3</td>
+                      <td><span class="tooltip" data-tip="Alerta enviado"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span></td>
+                      <td><button class="btn btn-ghost btn-sm">Detalhes</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200">
+                      <td class="tnum">01/07/2026 07:00</td>
+                      <td><span class="badge badge-info badge-sm">Sem alertas</span></td>
+                      <td><span class="badge badge-ghost badge-sm">Agendada</span></td>
+                      <td class="tnum text-right">58s</td><td class="tnum text-right">1.281</td>
+                      <td class="tnum text-right">0</td><td></td>
+                      <td><button class="btn btn-ghost btn-sm">Detalhes</button></td>
+                    </tr>
+                    <tr class="hover:bg-base-200">
+                      <td class="tnum">30/06/2026 07:00</td>
+                      <td><span class="badge badge-error badge-sm">Erro</span></td>
+                      <td><span class="badge badge-ghost badge-sm">Agendada</span></td>
+                      <td class="tnum text-right">12s</td><td class="tnum text-right">0</td>
+                      <td class="tnum text-right">—</td><td></td>
+                      <td><button class="btn btn-ghost btn-sm">Detalhes</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-base-content/60">Exibindo 1–4 de 87</span>
+                <div class="join">
+                  <button class="join-item btn btn-sm">«</button>
+                  <button class="join-item btn btn-sm btn-active">1</button>
+                  <button class="join-item btn btn-sm">2</button>
+                  <button class="join-item btn btn-sm">3</button>
+                  <button class="join-item btn btn-sm">»</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider text-sm text-base-content/60">Detalhe de execução</div>
+
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body space-y-4">
+              <div>
+                <div class="flex items-center gap-3 flex-wrap">
+                  <h2 class="text-lg font-semibold">Execução de 30/06/2026 07:00</h2>
+                  <span class="badge badge-error badge-sm">Erro</span>
+                  <span class="badge badge-ghost badge-sm">Agendada</span>
+                </div>
+                <p class="text-xs text-base-content/60 mt-1 tnum">id 7f3a…c21e · iniciada 30/06/2026 07:00:00 · finalizada 30/06/2026 07:00:12</p>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div><p class="text-xs uppercase tracking-wide text-base-content/60">Duração</p><p class="text-lg font-semibold tnum">12s</p></div>
+                <div><p class="text-xs uppercase tracking-wide text-base-content/60">Analisadas</p><p class="text-lg font-semibold tnum">0</p></div>
+                <div><p class="text-xs uppercase tracking-wide text-base-content/60">Viradas</p><p class="text-lg font-semibold tnum">—</p></div>
+                <div><p class="text-xs uppercase tracking-wide text-base-content/60">Alerta enviado</p><p class="text-lg font-semibold">Não</p></div>
+              </div>
+              <div class="alert alert-error">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                <div>
+                  <p class="font-medium">Falha de conexão com o banco de dados do ERP</p>
+                  <p class="text-sm">A verificação foi interrompida antes da análise das contas.</p>
+                </div>
+              </div>
+              <div class="collapse collapse-arrow border border-base-300 bg-base-200">
+                <input type="checkbox">
+                <div class="collapse-title text-sm font-medium">Detalhes técnicos (stack trace)</div>
+                <div class="collapse-content">
+                  <pre class="text-xs overflow-x-auto">ConnectionError: timeout ao conectar (exemplo fictício)
+  em worker/verificacao.py:42
+  em worker/main.py:18</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body space-y-3">
+              <div class="flex items-center gap-3 flex-wrap">
+                <h2 class="text-lg font-semibold">Execução de 02/07/2026 07:00</h2>
+                <span class="badge badge-success badge-sm">Sucesso</span>
+                <span class="badge badge-ghost badge-sm">Agendada</span>
+              </div>
+              <h3 class="text-base font-medium">Snapshot de viradas</h3>
+              <div class="overflow-x-auto">
+                <table class="table table-sm">
+                  <thead><tr class="text-xs uppercase text-base-content/60"><th>Empresa</th><th>Conta</th><th>Descrição</th><th>Natureza</th></tr></thead>
+                  <tbody>
+                    <tr><td>Filial 01</td><td class="tnum">1.1.02.001</td><td>Clientes nacionais</td>
+                      <td><span class="inline-flex items-center gap-2"><span class="badge badge-sm badge-ghost font-semibold tooltip" data-tip="Devedora">D</span><svg class="text-error" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg><span class="badge badge-sm badge-error font-semibold tooltip" data-tip="Credora">C</span></span></td></tr>
+                    <tr><td>Filial 01</td><td class="tnum">2.1.01.003</td><td>Fornecedores nacionais</td>
+                      <td><span class="inline-flex items-center gap-2"><span class="badge badge-sm badge-ghost font-semibold tooltip" data-tip="Credora">C</span><svg class="text-error" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg><span class="badge badge-sm badge-error font-semibold tooltip" data-tip="Devedora">D</span></span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: LOADING -->
+        <section data-estado="loading" class="hidden space-y-6">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body p-4 space-y-3">
+              <div class="flex gap-3"><div class="skeleton h-8 w-36"></div><div class="skeleton h-8 w-32"></div><div class="skeleton h-8 w-40"></div></div>
+              <div class="skeleton h-4 w-full"></div><div class="skeleton h-4 w-full"></div><div class="skeleton h-4 w-full"></div><div class="skeleton h-4 w-full"></div><div class="skeleton h-4 w-full"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: EMPTY -->
+        <section data-estado="empty" class="hidden">
+          <div class="card bg-base-100 border border-base-300 shadow-sm">
+            <div class="card-body items-center text-center py-16">
+              <svg class="text-base-content/30" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <h3 class="text-base font-medium mt-2">Nenhuma execução registrada ainda</h3>
+              <p class="text-xs text-base-content/60">As execuções agendadas e manuais aparecerão aqui.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO: ERROR -->
+        <section data-estado="error" class="hidden">
+          <div class="alert alert-error">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            <span>Não foi possível carregar as execuções.</span>
+            <button class="btn btn-sm btn-outline">Tentar novamente</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="fixed bottom-4 left-4 z-50 join shadow" data-theme="saccdark">
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('sucesso')">Sucesso</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('loading')">Loading</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('empty')">Empty</button>
+  <button class="btn btn-sm join-item" onclick="mostrarEstado('error')">Error</button>
+</div>
+<script>
+function mostrarEstado(e){document.querySelectorAll('[data-estado]').forEach(s=>s.classList.toggle('hidden', s.dataset.estado!==e));}
+mostrarEstado('sucesso');
+</script>
+</body>
+</html>

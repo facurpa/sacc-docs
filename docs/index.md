@@ -40,6 +40,9 @@ O SACC **apenas detecta e alerta** — a correção dos lançamentos é feita ma
 - [Observabilidade](./operacao/observabilidade.md) — logs estruturados, rastreabilidade e auditoria.
 - [Segurança](./operacao/seguranca.md) — autenticação, papéis e proteção de dados sensíveis.
 
+### Design
+- [Design de UI](./design/index.md) — design system (tokens DaisyUI, tipografia, componentes), especificação e mockups das telas, template do e-mail de alerta.
+
 ### Referências
 - [Endpoints da API](./referencias/endpoints.md) — API REST conceitual, por feature.
 - [Convenções de Código](./referencias/convencoes-de-codigo.md) — padrões para contribuidores.
