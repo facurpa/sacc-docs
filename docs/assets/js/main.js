@@ -106,8 +106,10 @@ async function carregarDoc() {
   const artigo = document.getElementById('conteudo');
   if (!artigo) return;
   const doc = docAtual();
-  if (!doc || doc.includes('..') || !doc.endsWith('.md')) {
-    artigo.innerHTML = '<p class="erro-doc">Documento não informado. Volte ao <a href="index.html">início</a>.</p>';
+  // Whitelist estrita: só caminho relativo simples dentro de docs/ (bloqueia URLs externas,
+  // protocol-relative "//", "..", "\" e querystrings — evita XSS por markdown de origem externa).
+  if (!doc || !/^[a-zA-Z0-9][a-zA-Z0-9/_.-]*\.md$/.test(doc) || doc.includes('..') || doc.includes('//')) {
+    artigo.innerHTML = '<p class="erro-doc">Documento não informado ou inválido. Volte ao <a href="index.html">início</a>.</p>';
     return;
   }
   artigo.innerHTML = '<p class="carregando">Carregando documento…</p>';
@@ -117,7 +119,9 @@ async function carregarDoc() {
     let md = await resp.text();
     // Remove o comentário de checklist de revisão do rodapé
     md = md.replace(/<!--[\s\S]*?-->\s*$/m, '');
-    artigo.innerHTML = marked.parse(md);
+    // Sanitização (defesa em profundidade): remove scripts/handlers de eventual HTML embutido no markdown
+    const html = marked.parse(md);
+    artigo.innerHTML = window.DOMPurify ? DOMPurify.sanitize(html) : html;
 
     // Título da aba
     const h1 = artigo.querySelector('h1');
@@ -159,8 +163,10 @@ async function carregarDoc() {
 
     // Âncora da URL após renderizar
     if (location.hash) {
-      const alvo = document.querySelector(decodeURIComponent(location.hash));
-      if (alvo) alvo.scrollIntoView();
+      try {
+        const alvo = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (alvo) alvo.scrollIntoView();
+      } catch (_) { /* âncora malformada: ignora */ }
     }
   } catch (e) {
     artigo.innerHTML = '<p class="erro-doc">Não foi possível carregar o documento (' + doc + ').<br>' +
