@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SACC — Documentação</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title"><a href="index.html"><span class="sigla">SACC</span> — Documentação</a></h1>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Sistema de Alertas Contábeis</h2>
+      <p>O SACC monitora automaticamente contas contábeis no ERP TOTVS Protheus, detecta saldos invertidos ("viradas")
+         e dispara alertas por e-mail para a área contábil da Cast Informática — substituindo a verificação manual semanal.</p>
+      <div class="cards">
+        <a class="card" href="pagina.html?doc=negocio/problema-e-solucao.md">
+          <h3>Negócio</h3>
+          <p>O problema que o SACC resolve, glossário contábil, regras de negócio e FAQ.</p>
+        </a>
+        <a class="card" href="pagina.html?doc=arquitetura/visao-geral.md">
+          <h3>Arquitetura</h3>
+          <p>Visão de alto nível, modelo de dados, integrações e decisões arquiteturais (ADRs).</p>
+        </a>
+        <a class="card" href="pagina.html?doc=operacao/fluxo-de-execucao.md">
+          <h3>Operação</h3>
+          <p>Como o worker de detecção roda, observabilidade, auditoria e segurança.</p>
+        </a>
+        <a class="card" href="pagina.html?doc=referencias/endpoints.md">
+          <h3>Referências</h3>
+          <p>Catálogo de endpoints da API e convenções de código para contribuidores.</p>
+        </a>
+        <a class="card" href="pagina.html?doc=design/index.md">
+          <h3>Design</h3>
+          <p>Design system, especificação das telas, mockups navegáveis e template do e-mail de alerta.</p>
+        </a>
+        <a class="card" href="pagina.html?doc=changelog.md">
+          <h3>Changelog</h3>
+          <p>Histórico de mudanças da documentação e do projeto.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes">
+      <p class="muted">Estado do projeto: desenvolvimento ativo, pré-produção · Última atualização: 02/07/2026</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© Cast Informática — SACC · Documentação interna</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
