@@ -11,7 +11,7 @@ Sistema interno da Cast Informática que **monitora contas contábeis no ERP TOT
 
 ➡️ **[Abrir a documentação](docs/index.md)**
 
-Trilhas rápidas por perfil:
+Trilhas rápidas por perfil: 
 
 | Se você é… | Comece por |
 |---|---|
