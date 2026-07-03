@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo; view de saldos finais ainda inexistente no ERP
+**Público:** desenvolvedores e administradores técnicos
 
 ## Objetivo do documento
 

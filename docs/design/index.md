@@ -4,10 +4,14 @@
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
 **Status da identidade visual:** proposta a validar contra a identidade aprovada da tela de Login.
+**Público:** desenvolvedores frontend e design
 
 ## Objetivo do documento
 
 Sumário da documentação de design de UI do SACC (Sistema de Alertas Contábeis): design system, padrões transversais, especificação tela a tela, mockups e template de e-mail.
+
+> [!NOTE]
+> As metas de **acessibilidade** (WCAG AA, foco visível, teclado, não depender só de cor) valem para **todas as telas** e estão centralizadas em [Design System — Acessibilidade](./design-system.md#acessibilidade).
 
 ## Mapa da seção
 

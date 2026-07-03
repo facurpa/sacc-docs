@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** worker implementado com lógica provisória de detecção; toggles de configuração dependem de feature em desenvolvimento
+**Público:** administradores técnicos e desenvolvedores
 
 ## Objetivo do documento
 
@@ -16,8 +17,11 @@ O worker é o coração do SACC: é ele que substitui a varredura manual da áre
 
 - **Cadência:** diária, padrão às 07:00 (horário de Brasília), via [APScheduler](../negocio/glossario.md#apscheduler) com timezone explícito ([ADR-014](../arquitetura/decisoes/adr-014-timezone-utc.md)).
 - **Onde roda:** no mesmo processo do servidor web, controlado por flag de configuração (`RUN_SCHEDULER=true`).
-- **Configurável:** horário e toggles migrarão para a tabela singleton `configuracoes_sistema` ([ADR-006](../arquitetura/decisoes/adr-006-configuracoes-singleton.md)); hoje o horário do cron ainda é lido do ambiente (dívida técnica registrada).
+- **Configurável:** horário e toggles migrarão para a tabela singleton `configuracoes_sistema` ([ADR-006](../arquitetura/decisoes/adr-006-configuracoes-singleton.md)).
 - **Trigger manual:** endpoint admin-only que responde `202 Accepted` e dispara a verificação imediatamente, ignorando o toggle de execução automática — ver [Endpoints](../referencias/endpoints.md).
+
+> [!NOTE]
+> **Dívida técnica:** hoje o horário do cron ainda é lido do ambiente; a migração para `configuracoes_sistema` está planejada.
 
 ## Passo a passo
 
@@ -61,9 +65,13 @@ Resumo (regras completas em [Regras de Negócio](../negocio/regras-de-negocio.md
 
 ## Como investigar uma execução
 
+**Como fazer** — na ordem:
+
 1. Consultar `logs_execucao` (via interface ou [endpoint de logs](../referencias/endpoints.md)): status, duração, contadores, snapshot das viradas, mensagem/stack de erro.
 2. Cruzar com os logs estruturados do processo pelos eventos do worker ([ADR-009](../arquitetura/decisoes/adr-009-eventos-structlog.md)) — ver [Observabilidade](./observabilidade.md).
 3. Conferir `audit_log` para a trilha da execução e de eventuais mudanças de configuração próximas.
+
+**O que esperar:** toda execução — inclusive as que terminam sem viradas — deixa uma linha em `logs_execucao`. A ausência de registro no horário agendado indica que o worker não rodou (ver [Comportamento em falha](#comportamento-em-falha) e o [roteiro de investigação](./observabilidade.md#roteiro-de-investigação-de-incidente)).
 
 ## Links relacionados
 

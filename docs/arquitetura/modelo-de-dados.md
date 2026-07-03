@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo; tabela `configuracoes_sistema` ainda planejada
+**Público:** desenvolvedores (backend)
 
 ## Objetivo do documento
 

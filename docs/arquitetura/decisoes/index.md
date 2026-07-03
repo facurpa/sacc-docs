@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** desenvolvedores e arquitetos (aplica-se a todos os ADRs desta seção)
 
 ## Objetivo do documento
 

@@ -3,10 +3,18 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** desenvolvedores e administradores técnicos
 
 ## Objetivo do documento
 
 Apresentar a arquitetura de alto nível do SACC (Sistema de Alertas Contábeis) e a stack tecnológica adotada.
+
+## Nesta página
+
+- [Diagrama de alto nível](#diagrama-de-alto-nível)
+- [Stack tecnológica](#stack-tecnológica)
+- [Papéis dos componentes](#papéis-dos-componentes)
+- [Ambientes](#ambientes)
 
 ## Contexto de negócio
 

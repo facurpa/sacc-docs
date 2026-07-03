@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** desenvolvedores frontend e design
 
 ## Objetivo do documento
 
@@ -10,7 +11,7 @@ Especificar a biblioteca de templates de e-mail de alerta e o editor rich-text (
 
 ## Acesso
 
-Rota `/templates`. Escrita: `admin`. Dados: `GET/POST/PUT /api/email-templates`, `PATCH /{id}/toggle-ativo`. Regra ([ADR-010](../../arquitetura/decisoes/adr-010-email-templates.md)): múltiplos templates podem estar ativos; **o worker usa o ativo atualizado mais recentemente**.
+Rota `/templates`. Escrita: `admin`. Dados: `GET/POST/PUT /api/email-templates`, `PATCH /{id}/toggle-ativo`. Regra ([ADR-010](../../arquitetura/decisoes/adr-010-templates-biblioteca.md)): múltiplos templates podem estar ativos; **o worker usa o ativo atualizado mais recentemente**.
 
 ## Layout — biblioteca
 
@@ -54,6 +55,6 @@ Rodapé fixo da página: Cancelar / Salvar (`btn-primary`).
 ## Links relacionados
 
 - [Template de e-mail de alerta](../email/template-alerta.md) — o design HTML de referência.
-- [ADR-010](../../arquitetura/decisoes/adr-010-email-templates.md) · [Mockup](../mockups/templates-email.html)
+- [ADR-010](../../arquitetura/decisoes/adr-010-templates-biblioteca.md) · [Mockup](../mockups/templates-email.html)
 
 <!-- Checklist de revisão: Segurança: variáveis e dados de preview fictícios. Fonte da verdade: ADR-010, modelo-de-dados.md. Editorial: PT-BR. OK. -->

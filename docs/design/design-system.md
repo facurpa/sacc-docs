@@ -4,6 +4,7 @@
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
 **Status da identidade visual:** ⚠️ **proposta a validar** — não houve acesso à identidade aprovada da tela de Login; a paleta e a tipografia abaixo são uma proposta e devem ser conferidas contra a identidade existente antes da adoção definitiva.
+**Público:** desenvolvedores frontend e design
 
 ## Objetivo do documento
 
@@ -202,6 +203,21 @@ Composição padrão: filtros → `overflow-x-auto` + `table table-sm` → rodap
 | **Empty** | Ícone lucide em `text-base-content/30` (48 px), mensagem amigável em h3, frase de apoio em caption. Ex.: "Nenhuma conta virada detectada" |
 | **Error** | `alert alert-error` com ícone `CircleAlert`, mensagem amigável traduzida e botão "Tentar novamente" (`btn btn-sm btn-outline`) |
 | **Sucesso** | Conteúdo + toasts para mutações |
+
+## Acessibilidade
+
+Metas de referência: **WCAG 2.1 nível AA**. Regras que valem para todas as telas:
+
+- **Nunca depender só de cor.** O estado crítico (virada/erro) sempre combina **cor + ícone + texto** — nunca vermelho isolado. Ex.: card herói do dashboard usa `TriangleAlert` + rótulo, não apenas a borda vermelha.
+- **Contraste:** texto e ícones informativos devem atingir contraste AA (≥ 4,5:1 para texto normal; ≥ 3:1 para texto grande e ícones essenciais) contra o fundo, nos temas claro e escuro. Conferir ao ajustar a paleta proposta.
+- **Foco visível:** todo elemento interativo mantém indicador de foco (não remover `outline` sem substituto). Ordem de tabulação segue a ordem visual.
+- **Teclado:** toda ação possível com mouse deve ser possível com teclado (abrir/fechar modais, alternar toggles, acionar "Tentar novamente").
+- **Alvos de toque/clique:** mínimo ~44×44 px para botões e ícones acionáveis.
+- **Semântica e leitores de tela:** usar elementos nativos (`button`, `table`, `label`); ícones decorativos com `aria-hidden`; ícones que carregam significado com `aria-label`. Toasts em região `aria-live` para anunciar o resultado de mutações.
+- **Imagens/ícones informativos:** fornecer texto alternativo equivalente.
+
+> [!NOTE]
+> Estas metas ainda não foram auditadas formalmente. Tratar como critério de aceite de UI e validar com ferramenta de contraste ao fechar a identidade visual.
 
 ## Ícones (lucide-react)
 

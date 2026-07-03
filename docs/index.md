@@ -3,10 +3,23 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** todos os leitores da documentação (negócio, desenvolvedores, administradores técnicos)
 
 ## Objetivo do documento
 
 Apresentar o SACC e servir de sumário navegável para toda a documentação pública do projeto.
+
+## Comece por aqui
+
+Escolha a trilha pelo seu perfil — cada passo leva ao próximo documento recomendado:
+
+| Perfil | Trilha sugerida |
+|---|---|
+| 🧑‍💼 **Negócio / novo no projeto** | [Problema e Solução](./negocio/problema-e-solucao.md) → [Glossário](./negocio/glossario.md) → [Regras de Negócio](./negocio/regras-de-negocio.md) |
+| 👩‍💻 **Desenvolvedor** | [Visão Geral da Arquitetura](./arquitetura/visao-geral.md) → [Convenções de Código](./referencias/convencoes-de-codigo.md) → [Endpoints](./referencias/endpoints.md) |
+| 🛠️ **Administrador técnico** | [Segurança](./operacao/seguranca.md) → [Telas](./design/index.md) → [Fluxo de Execução](./operacao/fluxo-de-execucao.md) |
+
+Com pressa ou com uma dúvida pontual? Vá direto à [FAQ](./negocio/faq.md).
 
 ## Contexto de negócio
 
@@ -28,6 +41,7 @@ O SACC **apenas detecta e alerta** — a correção dos lançamentos é feita ma
 - [Problema e Solução](./negocio/problema-e-solucao.md) — o que o SACC resolve, para quem e por quê.
 - [Glossário](./negocio/glossario.md) — termos contábeis, siglas e termos técnicos do projeto.
 - [Regras de Negócio](./negocio/regras-de-negocio.md) — detecção de virada, cadência, filtros e tratamento de falhas.
+- [Perguntas Frequentes (FAQ)](./negocio/faq.md) — dúvidas comuns, com link para a fonte de cada resposta.
 
 ### Arquitetura
 - [Visão Geral](./arquitetura/visao-geral.md) — diagrama de alto nível e stack tecnológica.
@@ -46,6 +60,7 @@ O SACC **apenas detecta e alerta** — a correção dos lançamentos é feita ma
 ### Referências
 - [Endpoints da API](./referencias/endpoints.md) — API REST conceitual, por feature.
 - [Convenções de Código](./referencias/convencoes-de-codigo.md) — padrões para contribuidores.
+- [Changelog da documentação](./changelog.md) — o que mudou nesta documentação.
 
 ## Estado do projeto
 
@@ -53,7 +68,9 @@ O projeto está em desenvolvimento ativo, ainda pré-produção:
 
 - **Concluído:** autenticação local, CRUDs administrativos (usuários, destinatários, templates, períodos), worker de detecção com lógica provisória, auditoria, dashboard básico.
 - **Em curso:** feature de configurações do sistema, sincronização do plano de contas com o ERP, propagação de identificador de rastreio (`request_id`).
-- **Bloqueado:** regra definitiva de detecção — aguarda a criação, no ERP, de uma view de saldos finais (ver [Regras de Negócio](./negocio/regras-de-negocio.md#estado-das-regras-e-impedimentos)).
+
+> [!WARNING]
+> **Bloqueado:** a regra definitiva de detecção aguarda a criação, no ERP, de uma view de saldos finais. Até lá, o worker roda com lógica provisória. Ver [Regras de Negócio](./negocio/regras-de-negocio.md#estado-das-regras-e-impedimentos).
 
 ## Links relacionados
 

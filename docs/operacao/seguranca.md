@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** autenticação e autorização implementadas; pendências registradas como dívida técnica
+**Público:** administradores técnicos e desenvolvedores
 
 ## Objetivo do documento
 
@@ -24,7 +25,7 @@ Modelo local (e-mail + senha), decidido no [ADR-001](../arquitetura/decisoes/adr
 - **Bootstrap:** o primeiro administrador é criado a partir de variáveis de ambiente (`INITIAL_ADMIN_*`).
 - **Rate limiting:** aplicado via middleware (in-memory).
 
-Endpoints de autenticação em [Endpoints](../referencias/endpoints.md#auth).
+Endpoints de autenticação em [Endpoints](../referencias/endpoints.md#auth-).
 
 ## Autorização (papéis)
 
@@ -53,7 +54,9 @@ Todos os eventos de sessão (login com sucesso, falha, lockout, troca de senha) 
 
 ## Pendências conhecidas
 
-- Um endpoint de diagnóstico de balancete está **sem autenticação** — dívida técnica documentada, com correção prevista (ver [Endpoints](../referencias/endpoints.md)). O sistema só é acessível na rede interna.
+> [!WARNING]
+> Um endpoint de diagnóstico de balancete está **sem autenticação** — dívida técnica documentada, com correção prevista (ver [Endpoints](../referencias/endpoints.md)). Mitigação atual: o sistema só é acessível na rede interna.
+
 - Exception handler global da API planejado, ainda não implementado.
 
 ## Links relacionados

@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** logs estruturados implementados; propagação de request_id planejada, não implementada
+**Público:** administradores técnicos e desenvolvedores (sustentação)
 
 ## Objetivo do documento
 
@@ -53,7 +54,9 @@ Três tabelas complementares (detalhes no [Modelo de Dados](../arquitetura/model
 
 ## Limites conhecidos
 
-- Health checks (`/health`, `/ready`) respondem "ok" **sem testar dependências** — dívida técnica registrada ([ADR-011](../arquitetura/decisoes/adr-011-kpis-frontend.md)).
+> [!WARNING]
+> Health checks (`/health`, `/ready`) respondem "ok" **sem testar dependências** — um "ok" não garante que o banco ou o ERP estejam acessíveis. Dívida técnica registrada ([ADR-011](../arquitetura/decisoes/adr-011-kpis-frontend.md)).
+
 - Sem alertas automáticos de erro de infraestrutura; o e-mail de incidente do worker cobre apenas falhas da própria execução.
 - Retenção e busca de logs dependem das ferramentas do servidor (sem agregador dedicado).
 

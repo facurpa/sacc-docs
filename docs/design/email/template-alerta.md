@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** desenvolvedores frontend e design
 
 ## Objetivo do documento
 
@@ -34,6 +35,13 @@ O e-mail precisa comunicar em segundos: houve virada, em quais contas, e o que s
 - Layout inteiro em `<table role="presentation">` aninhadas; nada de flex/grid.
 - Cores em hex; estilos inline em cada elemento (sem `<style>` dependente, exceto reset básico).
 - Testar em Outlook desktop, Outlook web e Gmail antes de ativar.
+
+## Acessibilidade
+
+- **Não depender de cor:** a coluna "Lado atual" combina cor `#B91C1C` **e** negrito **e** o rótulo textual do lado — a virada é legível mesmo sem enxergar a cor.
+- **Contraste:** conferir que os textos (inclusive rodapé `#64748B` 12 px e título `#B91C1C`) atingem contraste AA sobre o fundo.
+- **Assunto e pré-cabeçalho** devem resumir o alerta (ex.: "SACC — {{qtd_viradas}} conta(s) com saldo invertido"), para leitura na lista de e-mails.
+- Definir `lang="pt-BR"` no HTML e `alt` descritivo em qualquer imagem/logo que venha a ser adicionada.
 
 ## Links relacionados
 

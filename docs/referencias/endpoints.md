@@ -3,10 +3,15 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** conforme o estado de features de 01/07/2026 do Knowledge Source
+**Público:** desenvolvedores (frontend e backend)
 
 ## Objetivo do documento
 
 Catalogar, em nível conceitual, os endpoints da API REST do SACC (Sistema de Alertas Contábeis), com seu estado de implementação e requisito de papel.
+
+## Nesta página
+
+Por feature: [`auth`](#auth-) · [`usuarios`](#usuarios--escrita-admin-only) · [`plano_contas`](#plano_contas--será-refeito-como-somente-leitura) · [`destinatarios`](#destinatarios-) · [`email_templates`](#email_templates-) · [`periodos`](#periodos-) · [`logs`](#logs--somente-leitura) · [`audit_log`](#audit_log--admin-only-somente-leitura) · [`balancete`](#balancete--dívida-técnica) · [`worker`](#worker-) · [`configuracoes`](#configuracoes--em-desenvolvimento) · [`sync_plano_contas`](#sync_plano_contas--bloqueado-por-dependência-externa)
 
 ## Contexto de negócio
 

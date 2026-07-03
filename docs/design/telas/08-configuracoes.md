@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção (feature de configurações em desenvolvimento)
+**Público:** desenvolvedores frontend e design
 
 ## Objetivo do documento
 

@@ -3,10 +3,19 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** todos os leitores — inclusive quem nunca trabalhou com contabilidade
 
 ## Objetivo do documento
 
 Definir os termos contábeis, siglas e termos técnicos usados em toda a documentação do SACC (Sistema de Alertas Contábeis).
+
+## Nesta página
+
+- [Siglas do projeto](#siglas-do-projeto)
+- [Termos contábeis](#termos-contábeis)
+- [Termos técnicos do projeto](#termos-técnicos-do-projeto)
+- [Termos de UI/UX do projeto](#termos-de-uiux-do-projeto)
+- [Papéis (roles)](#papéis-roles)
 
 ## Contexto de negócio
 

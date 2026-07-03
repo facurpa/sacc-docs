@@ -3,10 +3,20 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** negócio e novos integrantes do projeto (leitura não exige conhecimento técnico)
 
 ## Objetivo do documento
 
 Explicar que problema o SACC (Sistema de Alertas Contábeis) resolve, para quem, por que foi resolvido dessa forma e como o sucesso é medido.
+
+## Nesta página
+
+- [O problema](#o-problema)
+- [A solução](#a-solução)
+- [Para quem](#para-quem)
+- [Escopo](#escopo)
+- [Por que essa forma de resolver](#por-que-essa-forma-de-resolver)
+- [Como se mede sucesso](#como-se-mede-sucesso)
 
 ## Contexto de negócio
 

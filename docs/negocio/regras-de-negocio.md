@@ -3,10 +3,22 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo; regra de detecção definitiva bloqueada por dependência externa
+**Público:** negócio, administradores técnicos e desenvolvedores
 
 ## Objetivo do documento
 
 Descrever as regras de negócio do SACC (Sistema de Alertas Contábeis): o que é uma virada, como ela é detectada, com que cadência e o que acontece em caso de falha.
+
+## Nesta página
+
+- [Conceito central: saldo invertido (virada)](#conceito-central-saldo-invertido-virada)
+- [Regra formal de detecção](#regra-formal-de-detecção)
+- [Por que só contas analíticas](#por-que-só-contas-analíticas)
+- [Fontes de dados para a regra](#fontes-de-dados-para-a-regra)
+- [Cadência](#cadência)
+- [Multi-empresa](#multi-empresa)
+- [Tratamento de falhas](#tratamento-de-falhas)
+- [Estado das regras e impedimentos](#estado-das-regras-e-impedimentos)
 
 ## Contexto de negócio
 
@@ -112,9 +124,11 @@ O detalhamento passo a passo está em [Fluxo de Execução](../operacao/fluxo-de
 | Saldo e lado atual | View de saldos finais no ERP | 🔴 Ainda não existe |
 | Detecção definitiva | Todos os itens acima | 🔴 Bloqueada pela view |
 
-Até a view de saldos finais existir, o worker usa a view atual de **movimento mensal** com uma lógica **provisória** de detecção, que será substituída quando a nova view estiver disponível.
+> [!WARNING]
+> Até a view de saldos finais existir, o worker usa a view atual de **movimento mensal** com uma lógica **provisória** de detecção, que será substituída quando a nova view estiver disponível.
 
-> **Nota de divergência na fonte:** o Knowledge Source diverge quanto ao estado da view de plano de contas — um documento a descreve como "em criação" e outro como "recém-criada". A view efetivamente inexistente, que bloqueia a detecção definitiva, é a de **saldos finais**.
+> [!NOTE]
+> **Divergência na fonte:** o Knowledge Source diverge quanto ao estado da view de plano de contas — um documento a descreve como "em criação" e outro como "recém-criada". A view efetivamente inexistente, que bloqueia a detecção definitiva, é a de **saldos finais**.
 
 ## Links relacionados
 

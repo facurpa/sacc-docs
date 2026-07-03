@@ -3,6 +3,7 @@
 **Última atualização:** 02/07/2026
 **Versão do documento:** v1
 **Estado do projeto refletido:** desenvolvimento ativo, pré-produção
+**Público:** desenvolvedores frontend e design
 **Nota:** a tela de Login já tem identidade aprovada. Esta spec **não redesenha do zero** — propõe o refinamento de consistência com o design system; validar contra a identidade existente antes de aplicar.
 
 ## Objetivo do documento
