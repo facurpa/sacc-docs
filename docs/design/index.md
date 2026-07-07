@@ -10,6 +10,13 @@
 
 Sumário da documentação de design de UI do SACC (Sistema de Alertas Contábeis): design system, padrões transversais, especificação tela a tela, mockups e template de e-mail.
 
+## Protótipo da Solução
+
+Protótipo navegável e referência visual da aplicação:
+
+🔗 https://system-aged-20792438.figma.site/login
+
+
 > [!NOTE]
 > As metas de **acessibilidade** (WCAG AA, foco visível, teclado, não depender só de cor) valem para **todas as telas** e estão centralizadas em [Design System — Acessibilidade](./design-system.md#acessibilidade).
 
